@@ -1,80 +1,89 @@
-# Dinosaur-Measurement
+# 恐龙测量工具
 
----
+一个基于Python开发的恐龙尺寸测量工具，支持多种测量模式和精确的尺寸计算。
 
-Software for length measurement of biological body parts in paleontology
+## 功能特点
 
----
+- **多种测量模式**：支持标准模式、快速模式和精确模式
+- **分离式界面**：控制面板和图片测量窗口分离，操作更便捷
+- **实时状态显示**：实时显示测量进度和操作状态
+- **完整日志记录**：保留所有测量过程的详细日志
+- **高兼容性**：基于PIL和Tkinter，避免OpenCV依赖问题
 
-# Dinosaur Measurement 软件教程
+## 系统要求
 
----
+- Python 3.6+
+- Windows 10/11
 
-## 简介
-Dinosaur Measurement 可以通过图像处理技术获取图片上点之间关系，并根据比例尺计算获取物体的实际长度或距离。
+## 依赖包
 
-## 界面
+```
+pandas
+pillow
+matplotlib
+numpy
+```
 
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/3490c717-0893-4876-a4cf-6d197175b892)
+## 安装依赖
 
-1 - 选择图片 按钮：单击该按钮能够进入图片选择界面
-2 - 图片路径 文本框： 选中的图片的路径会在点击确认后在文本框中显示
-3 - 设置比例 按钮： 单击该按钮能够更改比例尺的设置
-4 - 比例尺输入框：在该框中可以输入图片中bar的长度代表的实际距离
-5 - 测量模式： 针对工作的需要提供了三种不同的测量模式可供选择
+```bash
+pip install pandas pillow matplotlib numpy
+```
 
-●模式一案例：
+## 使用方法
 
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/884ed878-8610-41f0-94cf-fb70c660c855)
+1. **运行程序**
+   ```bash
+   python "Dinosaur Measurement.py"
+   ```
 
-●模式二案例：
+2. **操作步骤**
+   - 选择包含恐龙的图片文件
+   - 设置比例尺的实际长度（厘米）
+   - 选择测量模式（模式一/模式二/模式三）
+   - 点击"开始测量"，图片将在单独窗口显示
+   - 在图片上点击两个点进行距离测量
+   - 完成所有测量后保存结果
 
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/16e592aa-8dbb-46cd-8f78-111c86520f3a)
+## 测量模式说明
 
-●模式三案例：
+- **模式一**：标准测量模式（5次测量）
+  - 比例尺长度、头部长度、身体长度、头部宽度、身体宽度
+- **模式二**：快速测量模式（3次测量）
+  - 比例尺长度、头部长度、身体长度
+- **模式三**：精确测量模式（5次测量，带校准）
+  - 与模式一相同，但使用1.02校准因子
 
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/85cb930f-6ae4-40dc-b6f7-caad8c7461da)
+## 操作提示
 
-6 - 测量 按钮：单击该按钮进入测量界面，能够在图片上进行点选获取距离
-7 - 重置 按钮： 单击能够清除上次所有的操作和记录，开始新一轮的测量
-8 - 工作信息提示界面：能够将操作的所有过程记录进行显示
+- **左键点击**：添加测量点
+- **右键点击**：撤销上一个点
+- **重置按钮**：重新开始测量
+- **保存按钮**：保存测量结果到CSV文件
 
-## 工作流程
+## 界面布局
 
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/ea4ca62c-bbaa-4546-ada0-dce3281f3d4d)
+- **主窗口**（控制面板）：包含所有控制按钮和运行日志
+- **图片窗口**：单独显示图片，用于测量操作
+- **状态显示**：实时显示当前操作状态
+- **运行日志**：显示详细的测量过程和结果
 
-第一步：单击 选择图片 选中需要处理的图片
-第二步： 在 Length of bar 的 文本框 中填写 bar代表的实际长度。内容格式填写错误会有提示
-第三步： 根据自身需要选择测量模式
-第四步： 单击测量按钮开始测量工作
-第五步： 完成测量工作，单击重置按钮开始新工作
+## 文件说明
 
-第四步详解
+- `Dinosaur Measurement.py`：主程序文件
+- `README.md`：项目说明文档
 
-总述
+## 技术特点
 
-测量工作开始进入工作界面，能够使用鼠标在图片上进行点选，以每两个点为一组，没有问题之后，敲击键盘上除（ESC）或者（q）的任意键，完成一组测量，进入下一组。根据选择的模式的不同分别有5、3、2组需要进行。过程中如果存在选错的情况可以单击鼠标的右键进行一次撤销。工作过程中敲击（ESC）或者（q）键能够快速退出软件界面。
+- 使用PIL（Pillow）进行图像处理，避免OpenCV依赖问题
+- 基于Tkinter构建GUI界面，原生Windows支持
+- 支持图片缩放和坐标转换，确保测量精度
+- 使用pandas进行数据管理和CSV导出
 
-*注意：演示过程的所有的图片的 Length of bar 统一设置为 5，不一定与实际相符*
+## 版本信息
 
-*模式一*
-
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/ea4ca62c-bbaa-4546-ada0-dce3281f3d4d)
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/76d20d68-9491-4c04-baa3-96fa81cc7a02)
-
-*模式二*
-
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/0f5d1b68-c553-45a7-a21f-f9ad4a8fec59)
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/8c9ac824-0b83-4bd4-ac5a-fba467c400a3)
-
-模式三
-
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/b88e140c-2507-4b40-97f5-6fbc2343b9a6)
-![image](https://github.com/Jin-sjh/Dinosaur-Measurement/assets/97781484/effa9377-26af-4b72-bd08-fa15505126f1)
-
----
-
-## 注意
-目前软件仅支持在Win10环境下运行
-
----
+- 版本：v2.0 Enhanced
+- 开发语言：Python
+- 界面框架：Tkinter
+- 图像处理：PIL (Pillow)
+- 数据处理：Pandas
